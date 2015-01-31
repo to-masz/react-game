@@ -1,0 +1,78 @@
+<head>
+	<title>React</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-sm-12 text-center">
+				{{> board}}
+			</div>
+			<div class="col-md-4 col-sm-12">
+				{{> players }}
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+
+<template name="board">
+	{{#with current}}
+		<div class="well well-lg board">
+			{{{items}}}
+			{{#unless active}}
+				<div class="answer-results">
+				{{#if winnerPlayerId}}
+					<h1 class="text-center">{{winner winnerPlayerId}} wins!</h1>
+				{{else}}
+					<h1 class="text-center">No winners</h1>
+				{{/if}}
+				</div>
+			{{/unless}}
+			<div class="clearfix"></div>
+		</div>
+		<div class="well well-lg answer {{state}}">
+			<h3>{{question}}</h3>
+			<h4><small>points:</small> {{points}}</h4>
+			<div>
+				<span class="glyphicon glyphicon-hand-up"></span>
+			</div>
+		</div>
+	{{/with}}
+	
+</template>
+
+
+<template name="players">
+	
+	<form>
+		<div class="form-group">
+			<label for="playerName">Your player name</label>
+			<input type="text" value="{{name}}" class="form-control" id="playerName" placeholder="Enter name" />
+		</div>
+	</form>
+	
+	<table class="table table-striped table-hover">
+		<caption>List of players</caption>
+	<tbody>
+	{{#each list}}
+		{{> userRow}}
+	{{/each}}
+	</tbody>
+	</table>
+	
+</template>
+
+<template name="userRow">
+	<tr class="{{#if looser}}looser{{/if}}">
+		<td>
+			{{name}}
+		</td>
+		<td>
+			{{points}}
+		</td>
+	</tr>
+</template>

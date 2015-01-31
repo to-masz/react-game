@@ -1,0 +1,77 @@
+@shadow: 0px 0px 5px #aaa;
+
+body {
+	padding: 40px 0;	
+}
+
+.board-dot {
+	border-radius: 50%; 
+	display: block; margin: 10px; float: left; width: 30px; height: 30px;
+	box-shadow: @shadow;
+	
+    border: 1px dashed rgba(255, 255, 255, 0.5);
+}
+.board-dot.black {
+    background-color: #ddd;
+    box-shadow: 0 0 0 3px #ddd, 2px 1px 6px 4px rgba(10,10,0,.5);
+	border-color: #aaa;
+  
+    background-image: -webkit-linear-gradient(90deg, transparent 50%, rgba(0,0,0,0.1) 50%);
+    background-image: -moz-linear-gradient(90deg, transparent 50%, rgba(99,138,190,1) 50%);
+    background-size: 4px 4px;
+}
+.board-dot.white {
+	
+    background-color: #555;
+    box-shadow: 0 0 0 3px #555, 2px 1px 6px 4px rgba(10,10,0,.5);
+  
+    background-image: -moz-linear-gradient(0deg, rgba(0,0,0,.25) 50%, transparent 10%),-moz-linear-gradient(rgba(0,0,0,.25) 50%, transparent 50%);
+    background-image: -webkit-linear-gradient(0deg, rgba(0,0,0,.25) 50%, transparent 10%),-webkit-linear-gradient(rgba(0,0,0,.25) 50%, transparent 50%);
+    background-image: -o-linear-gradient(0deg, rgba(0,0,0,.25) 50%, transparent 10%),-o-linear-gradient(rgba(0,0,0,.25) 50%, transparent 50%);
+    background-size: 5px 5px;
+}
+
+
+.answer {
+	position: relative;
+	cursor: pointer;
+	
+	&.answered {
+		opacity: 0.5
+	}
+	&.win {
+		background: #dff0d8;
+		border-color: darken(spin(#dff0d8, -10), 5%)
+	}
+	&.loose {
+		background: #f2dede;
+		border-color: darken(spin(#f2dede, -10), 5%);
+	}
+	
+	h3 {
+		position: absolute; top: 0; left: 0;
+		margin: 0; padding: 15px;
+		color: #aaa; font-size: 1em;
+	}
+	h4 {
+		position: absolute; right: 0; bottom: 0; margin: 0;
+		opacity: 0.2; padding: 15px;
+	}
+}
+.board {
+	position: relative; overflow: hidden;
+	
+	.answer-results {
+		position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+		background: rgba(0, 0, 0, 0.4);
+	}
+	h1 {
+		color: #fff; font-size: 5em; position: absolute; top: 50%; height: 100px; margin-top: -50px; left: 0; right: 0;
+	}
+}
+
+.looser {
+	td {
+		background: #f2dede;
+	}
+}

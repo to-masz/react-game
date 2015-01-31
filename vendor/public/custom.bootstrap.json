@@ -1,0 +1,16 @@
+{
+	"name": "tomasz",
+	"modules": {
+		"normalize": true,
+		"navbar": true,
+		"type": true,
+		"grid": true,
+		"scaffolding": true,
+		"forms": true,
+		"tables": true,
+		"buttons":  true,
+		"wells": true,
+		"glyphicons": true,
+		"alerts": true
+	}
+}
